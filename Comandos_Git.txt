@@ -1,0 +1,180 @@
+
+---------------------------------------------------------------------
+		     CONFIGURACION DEL REPOSITORIO
+---------------------------------------------------------------------
+
+1. Abrir el Gitbush 
+
+2. Cambiar al directorio donde se encuentra el codigo fuente 
+
+3. Configurar de for global el usuario y el correo 
+
+	git config --global user.name "Juan Pacheco" 
+	git config --global user.email "jpachecon1@est.ups.edu.ec"
+	
+4. Verificar la configuración 
+	git config --global --list
+	
+	
+--------------------------------------------------------------------
+	 	    TRABAJANDO CON REPOSITORIO LOCAL
+--------------------------------------------------------------------
+1. Dentro de la carpeta del proyecto 
+
+2. Crear el repositorio
+	
+	git init
+	
+	Para ver las estadisticas de hora y todo eso es con el siguiente
+	comando (ls -al)
+	
+	Cuando se crea un repositorio en el GitHub, al final nos da el 
+	push ingresamos esas 3 lineas de codigo en la terminal
+	y se encuentra conectada la carpeta con el GitHub
+	
+	a. git remote add origin git@github.com:JapandyppTaller_Git_AsciiArt.git
+	b. git branch -M main
+	c. git push -u origin main
+	
+	Una vez la conexión se encuentre hecha los siguientes 
+	cambios solo los subimos mediante un (git push)
+	
+3. Agregar el script.py a la zona de stage
+
+	git add .
+	
+4. Comprometer el proyecto
+
+	git commit -m "Commit inicial"
+	
+5. Verificar el estado
+
+	git status
+	
+6. Revisar el historial de commits
+
+	git log
+	
+--------------------------------------------------------------------
+		   TRABAJANDO CON REPOSITORIOS REMOTOS
+--------------------------------------------------------------------
+1. Crear una cuenta en GitHub
+
+	Nota: tiliza el mismo correo de la UPS
+	
+2. Desde Gitbush. Generar una nueva clave
+	
+	ssh-keygen -t ed25519 -C "your_email@example.com"
+	
+3. Iniciar el agente SSH
+
+	eval "$(ssh-agent -s)"
+	
+4. Agregar la clave al agente
+
+	ssh-add /c/Users/CECASIG/.ssh/id-ed25519
+	ssh-add -/.ssh/id_ed25519 (***En casa***)
+	
+5. Copiar la clave publica 
+
+	cat /c/Users/CECASIG/.ssh/id-ed25519.pub
+	cat -/.ssh/id_ed25519.pub (***En casa***)
+	
+6. Pegar la clave publica en el GitHub
+
+7. Verificar si esta conectado 
+	ssh -T git@github.com
+
+
+----------------------------------------------------------------------
+   			BAJAR ARCHIVOS DE GITHUB
+---------------------------------------------------------------------
+	
+1. Clone - SSH - copiamos el enlace
+	git clone git@github.com:Japandypp/Taller_Git.git (Primera Vez)
+	
+2. Actualizamos 
+	git add.
+	git commit -m "Nombre del cambio"
+	git push
+	
+----------------------------------------------------------------------
+   			ACTUALIZAR SUDO / BASE DE DATOS
+---------------------------------------------------------------------
+
+1. Actualizar y mantener actualizado el software
+	
+	sudo apt update && sudo apt upgrade -y
+	
+2. Actualizar las librerias que se usaran en un proyecto, en este caso actualizamos python y sus herramientas basicas
+
+	sudo apt install python3 python3-pip python3-venv git -y
+	
+3. Instalar MySQL o MariaDB
+
+	sudo apt install mariadb-server mariadb-client -y
+
+4. Ejecutar para activar la base de datos mariadb
+
+	a. sudo systemctl start mariadb
+	
+	Comando para que siempre este activo mariadb cuando se inicia la pc
+	
+	b. sudo systemctl enable mariadb
+	
+5. Crear a la base de datos y un usuario para el proyecto 
+
+	a. sudo mysql -u root -p
+	
+	b. CREATE DATABASE ecommerce_db; (crear la base de datos)
+
+	c. CREATE USER 'ecommerce_user'@'localhost' IDENTIFIED BY '123456'; (crear un usuario, el 123456 es la clave)
+	
+	d. GRANT ALL PRIVILEGES ON ecoomerce_db.* TO 'ecommerce_user'@'localhost'; (comando para relacionar y dar permisos de que puede hacer todo en la base de datos con ese usuario)
+	
+	e. FLUSH PRIVILEGES;
+	
+	f. EXIT;
+	
+6. Crear la carpeta del proyecto 
+
+	a. mkdir e-shop
+	
+	b. cd e-shop
+	
+7. Crear el entorno virtual de python, activar e instalar paquetes
+
+	a. python3 -m venv venv
+	
+	b. source venv/bin/activate (activar mi entorno virtual)
+
+	c. pip install flask flask-sqlalchemy flask-migrate pymysql python-dotenv flask-login
+
+8. Creamos el repositorio
+
+	git init
+	
+9. Este comando sirve para ignorar los paquetes que no usamos en linux y se puedan usar en otro sistema operativo
+
+	a. echo "venv/" > .gitignore
+	
+	b. echo ".env" >> .gitignore
+	
+10. Congelar las librerias que tengo ahora y las guarda en un documento .txt
+
+	pip freeze > requirements.txt
+
+11. Enviamos el primer comentario al proyecto
+
+	a. git add .
+	
+	b. git status
+	
+	c. git commit -m "Setup inicial del proyecto"
+	
+12. Conectamos nuestro repositorio a nuestro GitHub
+
+	Comandos dados por git 
+
+
+	
