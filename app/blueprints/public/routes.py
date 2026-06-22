@@ -10,6 +10,6 @@ def tienda ():
     return render_template('public/tienda.html')
 
 @public_bp.route('/contacto')
-def tienda ():
+def contacto ():
     return render_template('public/contacto.html')
 

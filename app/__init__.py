@@ -1,9 +1,9 @@
 from flask import Flask
-from flask_sqlalchemy import SQLALchemy
+from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from app.config import Config
 
-db = SQLALchemy()
+db = SQLAlchemy()
 
 migrate = Migrate()
 
@@ -22,6 +22,6 @@ def create_app():
 
     app.register_blueprint(public_bp)
     app.register_blueprint(auth_bp, url_prefix='/auth')
-    app.register_blueprint(auth_bp, url_prefix='/admin')
+    app.register_blueprint(admin_bp, url_prefix='/admin')
 
     return app
