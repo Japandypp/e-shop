@@ -2,7 +2,7 @@ from app import db
 from datetime import datetime
 from werkzeug.security import generate_password_hash, check_password_hash
 
-class Usuario(db.model):
+class Usuario(db.Model):
     __tablename__='usuarios'
 
     id = db.Column(db.Integer, primary_key=True)
@@ -12,6 +12,9 @@ class Usuario(db.model):
     rol = db.Column(db.Enum('cliente', 'admin'), default='cliente')
     activo = db.Column(db.Boolean, default=True)
     creado_en = db.Column(db.DateTime, default=datetime.now())
+
+    # Relacion un usuario tiene muchos pedidos
+    pedidos = db.relationship('Pedido', backred='cliente', lazy=True)
 
     # -- Metodos de contraseña
 
@@ -30,4 +33,4 @@ class Usuario(db.model):
     def __repr__(self):
         return f'<Usuario: {self.email} | {self.rol}>'
     
-    
+
