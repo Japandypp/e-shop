@@ -3,7 +3,7 @@ from . import public_bp
 
 @public_bp.route('/')
 def home():
-    return render_template('public/home.html')
+    return render_template('home.html')
 
 @public_bp.route('/tienda')
 def tienda ():
