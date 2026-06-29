@@ -14,6 +14,9 @@ def create_app():
     db.init_app(app)
     migrate.init_app(app, db)
 
+    #Modelos
+    from app.models import Usuario 
+
 
     #BLUEPRINTS
     from app.blueprints.public import public_bp
@@ -25,3 +28,4 @@ def create_app():
     app.register_blueprint(admin_bp, url_prefix='/admin')
 
     return app
+
