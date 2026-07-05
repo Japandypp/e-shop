@@ -14,7 +14,7 @@ class Usuario(db.Model):
     creado_en = db.Column(db.DateTime, default=datetime.now())
 
     # Relacion un usuario tiene muchos pedidos
-    pedidos = db.relationship('Pedido', backred='cliente', lazy=True)
+    pedidos = db.relationship('Pedido', backref='cliente', lazy=True)
 
     # -- Metodos de contraseña
 
