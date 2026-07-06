@@ -337,3 +337,38 @@ Tarea: La carpeta que esta en el avac de los codigos
 	(venv) $ python seed.py
 9. Verificar que los datos de prueba se han creado en la BDD
 10. Hacer un informe 
+
+----------------------------------------------------------------------
+   	PRACTICA 06 - Configuración de autenticación
+----------------------------------------------------------------------
+
+1. Dentro del proyecto y activado mi entorno virtual instalare una libreria que me ayudara con la 
+	autenticación de la aplicacion
+	
+	pip install flask-login
+	
+2. Nos vamos a app/__init__.py inicializamos e incluimos la libreria flask login
+
+	from flask_login import LoginManager
+	
+3. Agregar una instalancia en app/__init__.py
+	
+	login_manager = LoginManager()
+	
+	login_manager.init_app(app)
+	
+4. Configuramos el Login Manager
+
+	login_manager.login_view = 'auth.login'
+	
+	login_manager.login_message = 'Inicia sesión para continuar'
+	
+	login_manager.login_message_category = 'warning'
+	
+5. Instalar la libreria 
+
+	pip install flask-wtf email-validator
+	
+6. Agregamos las librerias al archivo requirements
+
+	pip freeze > requirements.txt
