@@ -144,7 +144,7 @@
 	
 7. Crear el entorno virtual de python, activar e instalar paquetes
 
-	a. python3 -m venv venv
+	a. python -m venv venv
 	
 	b. source venv/bin/activate (activar mi entorno virtual)
 
@@ -176,5 +176,164 @@
 
 	Comandos dados por git 
 
+13. Ingresamos a la carpeta nueva WEB CECASIG desde el gitbash
 
+	cd "/c/CECASIG/Pacheco 6to semestre/Web"
+
+14. Clonamos el repositorio
+
+	git clone https://github.com/Japandypp/e-shop.git (en casa debe ser ssh)
+
+15. Creamos el entorno virtual, activar e instalar librerias
+
+	python -m venv venv
+
+	source .venv/Scripts/activate
+
+	pip install -r requirements.txt
+
+16. Codigo para crear en mi carpeta (app.py)
+
+	from flask import Flask
+
+	app = Flask(__name__)
+
+	@app.route('/')
+
+	def home():
+    		return 'Mi primer e-commerce :)'
+
+
+	if __name__ == '__main__':
+    		app.run(debug=True)
+
+17. Ejecutar
+
+	python .\app.py
+
+	python app.py
 	
+	
+	
+----------------------------------------------------------------------
+   	PRACTICA 04 - ESTRUCTURA DEL PROYECTO Y CONEXIÓN A MYSQL
+----------------------------------------------------------------------
+
+- El archivo .env es un archivo de entorno del sistema que se va a guardar las credenciales y las bases de datos que no se debe subir a la base de datos
+- Carpeta APP
+- El __init__.py 
+- El config.py tendra toda las configuracion
+- Carpeta blueprints toda la logica de mi aplicacion
+- run.py 
+- models todos los modelos y tablas que estan relacionadas con la base de datos, todo esto se mapeara para el final
+
+1. Estructura de carpetas
+	
+japandyp@PC:~/Web/e-shop$ tree -I venv
+.
+├── app
+│   ├── blueprints
+│   │   ├── admin
+│   │   │   ├── __init__.py
+│   │   │   └── routes.py
+│   │   ├── auth
+│   │   │   ├── __init__.py
+│   │   │   └── routes.py
+│   │   └── public
+│   │       ├── __init__.py
+│   │       └── toutes.py
+│   ├── config.py
+│   ├── __init__.py
+│   ├── models
+│   │   ├── __init__.py
+│   │   ├── pedido.py
+│   │   ├── producto.py
+│   │   └── usuario.py
+│   ├── static
+│   │   ├── css
+│   │   └── js
+│   └── templates
+│       ├── admin
+│       ├── auth
+│       ├── base.html
+│       └── public
+├── app.py
+├── Comandos_Git.txt
+├── requirements.txt
+└── run.py
+
+
+
+2. Crear las variables de configuración en el archivo .env
+
+Generados de claves randomicas
+
+	https://randomkeygen.com/
+	
+Secrets KEY
+
+	earn-hamster-icon
+	
+FLASK_ENV = development
+SECRET_KEY = earn-hamster-icon
+DB_USER = ecommerce_user
+DE_PASSWORD = 123456
+DB_HOST = localhost
+DB_NAME = ecommerce_db
+
+3. Verificar que el entorno 
+
+	flask --app run db init 
+	
+	flask --app run db migrate 
+	
+	flask --app run db upgrade 
+	
+	
+----------------------------------------------------------------------
+   	PRACTICA 05 - MODELO DE MIGRACION
+----------------------------------------------------------------------
+Comando a ejecutar en casa
+
+Como pasar mis tabla de python a MySQL
+
+El ORN es el que se encarga de sincronizar la base de datos
+
+	Estructura (cuando edito mi carpeta modelos, migro)
+	
+	Datos
+	
+1. Activa el proceso de migracion solo se hace una sola vez
+
+	flask --app run db init
+	
+2. Crea un plan para migrar 
+
+	flask --app run db migrate -m "Modelo inicial de usuario"
+	
+3. Subir los cambios cuando el migrate no me sale error
+
+	flask --app run db upgrade
+	
+4. Verificar que mi tabla esta en mariadb
+
+	sudo mariadb
+	Use ecommerce_db;
+	show tables;
+	select * from usuarios;
+	describe usuarios;
+	
+	
+Tarea: La carpeta que esta en el avac de los codigos 
+1. Descargar los archivos .py del avac
+2. Copiar los archivos a la carpeta modelo
+3. Exportar los archivos
+4. Configurar las nuevas clases en factory (app/__init__.py)
+5. Migrar a la base de datos
+6. Demostrar que las tablas se han creado
+	>describe [tabla]
+7. Copiar el archivo seed.py dentro de la carpeta del proyecto
+8. Ejecutar el seed.py
+	(venv) $ python seed.py
+9. Verificar que los datos de prueba se han creado en la BDD
+10. Hacer un informe 
