@@ -379,14 +379,38 @@ Tarea: La carpeta que esta en el avac de los codigos
 1. Home --> Tienda (Cat/Prod) 
 	--> Detalle Producto 
 	--> Carrito 
-	--> Pago
 
 2. Proyecto lo que falta por implementar
 	
-	Panel de administración 
+	a. Panel de administración 
 		[] admin/dashboard.html - Métricas: ventas, pedidos, productos con bajo stock
 		[] admin/routes.py - todas las rutas del panel de administración
 		[] CRUD Categorias: listar, crear, editar, eliminar (que sea lógico)
 		[] CRUD Productos: listar, crear, editar, eliminar (que sea lógico), subir imagen
 		[] Gestión de clientes - Listar, activar / desactivar cuenta (clientes)
+		[] Gestión de pedidos  listar todos, cambiar de estado (pendiente --> pagado --> entregado ()crear un gestion pedidos para poder cambiar de estado del producto, yo lo cambio manualmente, la secuencia es recta no puedo retroceder atras))
 		
+	b. Subida de imagenes:
+		[] Configurar carpeta static/img/
+		[] Lógica de upload en formulario de productos (admin)
+		[] Validar tipo (jpg, jpeg, webp) y tamaño del archivo
+		
+	c. Fronted
+		[] Crear estilos propios derivados de Bootstrap (static/css/style.css)
+		[] Crear una tienda propia (estilo y productos)
+		[] Crear un footer con el nombre de los integrantes
+		[] Crear una página de "ACERCA de" con la descripción del proyecto y el año
+		
+	d. Despliegue final 
+		[] Archivo .gitignore completo
+		[] Archivo requirementes.txt actalizado
+		[] Configurado modo producción (FLASK_ENV=production)
+		[] Variables de entorno de servidor 
+		[] Gunicorn como servidor WSGI
+		[] README con instrucciones de instalacion
+		
+	e. Hacer un Fork en la github
+		Nombre de la tienda
+		Poner una descripción
+		
+	f. Validar que mi pagina web corra en entorno linux
