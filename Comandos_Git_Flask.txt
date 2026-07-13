@@ -372,3 +372,21 @@ Tarea: La carpeta que esta en el avac de los codigos
 6. Agregamos las librerias al archivo requirements
 
 	pip freeze > requirements.txt
+	
+
+
+
+1. Home --> Tienda (Cat/Prod) 
+	--> Detalle Producto 
+	--> Carrito 
+	--> Pago
+
+2. Proyecto lo que falta por implementar
+	
+	Panel de administración 
+		[] admin/dashboard.html - Métricas: ventas, pedidos, productos con bajo stock
+		[] admin/routes.py - todas las rutas del panel de administración
+		[] CRUD Categorias: listar, crear, editar, eliminar (que sea lógico)
+		[] CRUD Productos: listar, crear, editar, eliminar (que sea lógico), subir imagen
+		[] Gestión de clientes - Listar, activar / desactivar cuenta (clientes)
+		
